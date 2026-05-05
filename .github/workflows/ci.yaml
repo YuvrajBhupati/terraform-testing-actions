@@ -24,6 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TF_ENVIRONMENT: ${{ inputs.environment || 'dev' }}
+
+    environment: ${{ inputs.environment || 'dev' }}
     steps:
       - uses: actions/checkout@v6
       - uses: hashicorp/setup-terraform@v4
