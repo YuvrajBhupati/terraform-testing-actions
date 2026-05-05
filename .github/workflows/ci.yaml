@@ -45,4 +45,4 @@ jobs:
 
       - name: Terraform Apply
         working-directory: terraform/environments/${{ env.TF_ENVIRONMENT }}
-        run: terraform apply -auto-approve
+        run: terraform apply
