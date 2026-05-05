@@ -22,8 +22,7 @@ permissions:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment || 'dev' }}
-
+    
     env:
       TF_ENVIRONMENT: ${{ inputs.environment || 'dev' }}
 
@@ -46,4 +45,7 @@ jobs:
 
       - name: Terraform Apply
         working-directory: terraform/environments/${{ env.TF_ENVIRONMENT }}
+        env:
+          TF_ENVIRONMENT: ${{ inputs.environment || 'dev' }}
+          environment: ${{ inputs.environment || 'dev' }}
         run: terraform apply
