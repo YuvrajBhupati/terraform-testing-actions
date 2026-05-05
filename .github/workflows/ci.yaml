@@ -29,6 +29,10 @@ jobs:
       - uses: hashicorp/setup-terraform@v4
         with:
           terraform_version: 1.10.5
+          
+      - name: Print environment variable
+        run: 'echo "MY_VAR is: ${{ vars.MSG }}"'
+        
       - name: Init
         working-directory: terraform/environments/${{ env.TF_ENVIRONMENT }}
         run: terraform init
